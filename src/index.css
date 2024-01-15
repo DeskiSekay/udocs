@@ -20,13 +20,13 @@ body,
     height: 100%;
     transition: all .2s;
 }
-.docs-page.docs-page-browse{
+.docs-page.docs-page__browse{
     grid-template-columns: 1fr 1fr 3fr;
 }
-.docs-page.docs-page-read{
+.docs-page.docs-page__read{
     grid-template-columns: 0fr 1fr 4fr;
 }
-.docs-page .docs-page-col{
+.docs-page .docs-page__col{
     min-width: 0;
     height: 100%;
     overflow: hidden;
