@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+html,
+body,
+#root {
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+}
+.docs-page{
+    display: grid;
+    grid-template-rows: 1fr;
+    height: 100%;
+    transition: all .2s;
+}
+.docs-page.docs-page-browse{
+    grid-template-columns: 1fr 1fr 3fr;
+}
+.docs-page.docs-page-read{
+    grid-template-columns: 0fr 1fr 4fr;
+}
+.docs-page .docs-page-col{
+    min-width: 0;
+    height: 100%;
+    overflow: hidden;
+}
+.flex{
+    display: flex;
+}
+.flex-c{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.flex-sb{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.flex-v{
+    display: flex;
+    flex-direction: column;
+}
+.a-c{
+    align-items: center;
+}
+.j-c{
+    justify-content: center;
+}
+.h-full{
+    height: 100%;
+}
+.w-full{
+    width: 100%;
+}
