@@ -1,37 +1,36 @@
+import { Tooltip } from "@arco-design/web-react";
+import { TbArrowBarLeft, TbArrowBarRight } from "react-icons/tb";
 import "./index.css";
 
-function DocsContentHeadComponent() {
+function DocsContentHeadComponent({
+  collapse,
+  onMenuItemClick,
+}: {
+  collapse: boolean;
+  onMenuItemClick: (item: string) => void;
+}) {
   return (
     <div className="docs-content-head__wrapper">
       <div className="docs-content-head">
         <div className="docs-content-head__group docs-content-head__first">
-          <div className="doc-content-head__opts">
-            <div className="doc-content-head__opt">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
+          <div className="doc-content-head__opts flex gap-1">
+            <Tooltip content="123" trigger="hover" position="bottom" color="#63635e">
+              <div
+                className="doc-content-head__opt opt-item opt-item__sd"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onMenuItemClick("collapse");
+                }}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3.75 9h16.5m-16.5 6.75h16.5"
-                />
-              </svg>
-            </div>
-            <div className="doc-content-head__opt"></div>
-            <div className="doc-content-head__opt"></div>
+                {collapse ? <TbArrowBarRight /> : <TbArrowBarLeft />}
+              </div>
+            </Tooltip>
+            <div className="doc-content-head__opt opt-item opt-item__sd"></div>
+            <div className="doc-content-head__opt opt-item opt-item__sd"></div>
           </div>
         </div>
-        <div className="docs-content-head__group docs-content-head__second">
-          Description
-        </div>
-        <div className="docs-content-head__group docs-content-head__third">
-          Description
-        </div>
+        <div className="docs-content-head__group docs-content-head__second">Description</div>
+        <div className="docs-content-head__group docs-content-head__third">Description</div>
       </div>
     </div>
   );

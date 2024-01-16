@@ -1,0 +1,25 @@
+.docs-page {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: all 0.2s;
+}
+.docs-page.docs-page__browse {
+  grid-template-columns: 1fr 1fr 3fr;
+}
+.docs-page.docs-page__read {
+  grid-template-columns: 0fr 1fr 4fr;
+}
+.docs-page.docs-page__collapse {
+  grid-template-columns: 0fr 0fr 1fr;
+}
+.docs-page .docs-page__col {
+  min-width: 0;
+  height: 100%;
+  overflow: hidden;
+}
+.docs-page .docs-page__inner-wrapper {
+  width: calc(100% - 0.5rem);
+  height: calc(100% - 1rem);
+  margin: 0.5rem 0.25rem;
+  border-radius: 0.5rem;
+}

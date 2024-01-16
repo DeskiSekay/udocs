@@ -1,0 +1,10 @@
+.docs-chapter-list__wrapper {
+  background-color: var(--colors-gray-light-2);
+}
+.docs-chapter-list__toolbar {
+  opacity: 0;
+  transition: all 0.15s ease-in-out;
+}
+.docs-chapter-list__wrapper:hover .docs-chapter-list__toolbar {
+  opacity: 1;
+}
