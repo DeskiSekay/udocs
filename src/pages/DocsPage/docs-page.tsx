@@ -4,8 +4,11 @@ import { IDocsContentParams } from "../../components/DocsContent/index.tsx";
 import DocsChapterListContent, { IDocsChapterListParams } from "@/components/DocsChapterList/index.tsx";
 import DocsGalleryListComponent, { IDocsGalleryListParams } from "@/components/DocsGalleryList/index.tsx";
 import "./docs-page.css";
+import { Link, Modal, Typography } from "@arco-design/web-react";
+import { ContextShowJoinContributer } from "@/context/user-context.ts";
 
 function DocsPage() {
+  const [showJoinContributer, setShowJoinContributer] = useState<boolean>(false);
   const [pageMode, setPageMode] = useState<string>("browse");
   const [docsGalleryParams, setDocsGalleryParams] = useState<IDocsGalleryListParams>({
     list: ["1", "2", "3"],
@@ -49,19 +52,35 @@ function DocsPage() {
     }
   };
   return (
-    <div className="docs-page__wrapper w-full h-full">
-      <div className={`docs-page docs-page__${pageMode} w-full h-full`}>
-        <section className="docs-page__col">
-          <DocsGalleryListComponent params={docsGalleryParams} />
-        </section>
-        <section className="docs-page__col">
-          <DocsChapterListContent params={docsListParams} onChange={handleDocsListChange} />
-        </section>
-        <section className="docs-page__col">
-          <DocsContentComponent params={docsContentParams} onChange={handleDocsContentChange} />
-        </section>
+    <ContextShowJoinContributer.Provider value={setShowJoinContributer}>
+      <div className="docs-page__wrapper w-full h-full">
+        <div className={`docs-page docs-page__${pageMode} w-full h-full`}>
+          <section className="docs-page__col">
+            <DocsGalleryListComponent params={docsGalleryParams} />
+          </section>
+          <section className="docs-page__col">
+            <DocsChapterListContent params={docsListParams} onChange={handleDocsListChange} />
+          </section>
+          <section className="docs-page__col">
+            <DocsContentComponent params={docsContentParams} onChange={handleDocsContentChange} />
+          </section>
+        </div>
+        <Modal
+          visible={showJoinContributer}
+          onOk={() => setShowJoinContributer(false)}
+          onCancel={() => setShowJoinContributer(false)}
+          simple
+        >
+          <div className="modal-join-contributer">
+            <Typography.Title heading={6}>Sry, Only for contributer</Typography.Title>
+            <Typography.Text>
+              We're looking for contributors to help us build the best developer experience. If you're
+              interested, please click <Link href="#">here</Link>.
+            </Typography.Text>
+          </div>
+        </Modal>
       </div>
-    </div>
+    </ContextShowJoinContributer.Provider>
   );
 }
 

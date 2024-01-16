@@ -13,7 +13,7 @@ function DocsContentHeadComponent({
     <div className="docs-content-head__wrapper">
       <div className="docs-content-head">
         <div className="docs-content-head__group docs-content-head__first">
-          <div className="doc-content-head__opts flex gap-1">
+          <div className="doc-content-head__opts flex a-c gap-1">
             <Tooltip content="123" trigger="hover" position="bottom" color="#63635e">
               <div
                 className="doc-content-head__opt opt-item opt-item__sd"
@@ -28,9 +28,7 @@ function DocsContentHeadComponent({
             <div className="doc-content-head__opt opt-item opt-item__sd"></div>
             <div className="doc-content-head__opt opt-item opt-item__sd"></div>
           </div>
-        </div>
-        <div className="docs-content-head__group docs-content-head__second">Description</div>
-        <div className="docs-content-head__group docs-content-head__third">Description</div>
+        </div> 
       </div>
     </div>
   );

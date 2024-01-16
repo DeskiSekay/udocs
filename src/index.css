@@ -114,8 +114,37 @@ body,
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 1.75rem;
-  height: 1.75rem;
+  width: 1.5rem;
+  height: 1.5rem;
   padding: 0.25rem;
   border-radius: 0.5rem;
+}
+.hover-show{
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s ease-in-out;
+}
+.hover-show:hover{
+  opacity: 1 !important;
+}
+/* 修改整体轨道的高度 */
+::-webkit-scrollbar {
+  width: 4px; /* 根据需要调整大小 */
+  height: 4px;
+}
+
+/* 修改滑块的样式 */
+::-webkit-scrollbar-thumb {
+  background-color: #999; /* 根据需要调整颜色 */
+  border-radius: 4px; /* 根据需要调整边角形状 */
+}
+
+/* 当滑块处于活动状态时的样式 */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #666; /* 根据需要调整颜色 */
+}
+
+/* 添加按钮（向上/向下）的样式 */
+::-webkit-scrollbar-button {
+  display: none; /* 不显示按钮 */
 }

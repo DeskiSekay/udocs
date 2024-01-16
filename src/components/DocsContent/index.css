@@ -1,3 +1,39 @@
 .docs-content__wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   background-color: var(--colors-gray-light-1);
+}
+.doc-content__head {
+  height: 2rem;
+  padding: 0.25rem;
+}
+.doc-content__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.doc-content__body main {
+  height: 100%;
+  overflow-y: auto;
+}
+.doc-content__body section.doc-content__text {
+  min-height: calc(100% - 5rem);
+}
+.doc-content__body section.doc-content__foot {
+  height: 5rem;
+  opacity: 0;
+  transition: all 0.15s ease-in-out;
+}
+.doc-content__body section.doc-content__foot:hover {
+  opacity: 1;
+}
+.doc-content__body .tab-c-button {
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.15s ease-in-out;
+}
+.doc-content__body .arco-tabs-header-wrapper:hover .tab-c-button {
+  opacity: 1;
 }
