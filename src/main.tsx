@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom/client";
-import DocsPage from "./pages/DocsPage/docs-page.tsx";
 import "@arco-design/web-react/dist/css/arco.css";
 import "./index.css";
+import App from "./App.tsx";
 
-ReactDOM.createRoot(document.getElementById("root")!).render(<DocsPage />);
+ReactDOM.createRoot(document.getElementById("root")!).render(<App />);
