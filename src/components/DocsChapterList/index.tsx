@@ -2,16 +2,23 @@ import { Tooltip } from "@arco-design/web-react";
 import { TbArrowBarLeft, TbArrowBarRight } from "react-icons/tb";
 import "./index.css";
 
-export interface IDocsChapterListParams {
-  collapse: boolean;
+interface IDocsChapterListParams {
+  params: {
+    collapse: boolean;
+  };
+  data: {
+    list: string[];
+  };
+  action: {
+    handleDataAction: (action: string, state: unknown, src?: string) => void;
+    handleViewAction: (action: string, state: unknown, src?: string) => void;
+  };
 }
 function DocsChapterListContent({
-  params,
-  onChange,
-}: {
-  params: IDocsChapterListParams;
-  onChange: (action: string, state: unknown) => void;
-}) {
+  params: { collapse },
+  data: { list },
+  action: { handleViewAction },
+}: IDocsChapterListParams) {
   return (
     <div className="docs-chapter-list__wrapper docs-page__inner-wrapper">
       <div className="docs-chapter-list__toolbar">
@@ -20,12 +27,21 @@ function DocsChapterListContent({
             className="opt-item opt-item__sd"
             onClick={(e) => {
               e.preventDefault();
-              onChange("collapse", !params.collapse);
+              handleViewAction("collapse", !collapse, "chapter-list");
             }}
           >
-            {params.collapse ? <TbArrowBarRight /> : <TbArrowBarLeft />}
+            {collapse ? <TbArrowBarRight /> : <TbArrowBarLeft />}
           </div>
         </Tooltip>
+      </div>
+      <div className="docs-chapter-list__list">
+        {list.map((item) => {
+          return (
+            <div className="docs-chapter-list__list-item" key={item}>
+              {item}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

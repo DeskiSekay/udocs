@@ -1,14 +1,29 @@
+import { TDeviceType } from "@/types/system";
 import "./index.css";
 
 export interface IDocsGalleryListParams {
-  list: string[];
+  params?: { deviceType: TDeviceType };
+  data: {
+    list: string[];
+  };
+  action: {
+    handleDataAction: (action: string, state: unknown, src?: string) => void;
+  };
 }
-function DocsGalleryListComponent({ params }: { params: IDocsGalleryListParams }) {
+function DocsGalleryListComponent({ data: { list }, action: { handleDataAction } }: IDocsGalleryListParams) {
   return (
     <div className="docs-gallery-list__wrapper docs-page__inner-wrapper">
-      {params.list ? (
-        params.list.map((item) => {
-          return <div className="docs-gallery-list__item">{item}</div>;
+      {list ? (
+        list.map((item) => {
+          return (
+            <div
+              className="docs-gallery-list__item"
+              key={item}
+              onClick={() => handleDataAction("click-list-item", item, "gallery-list")}
+            >
+              {item}
+            </div>
+          );
         })
       ) : (
         <div>暂无数据</div>

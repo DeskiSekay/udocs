@@ -1,31 +1,23 @@
 import DocsContentHeadComponent from "@/components/DocsContentHead";
+import { ICommonComponentProps } from "@/types/system";
+import DocsContentItemComponent from "../DocsContentItem";
 
-export interface IDocsContentParams {
-  collapse: boolean;
-}
 function DocsContentComponent({
-  params,
-  onChange,
-}: {
-  params: IDocsContentParams;
-  onChange: (action: string, state: unknown) => void;
-}) {
-  const onMenuItemClick = (item: string) => {
-    switch (item) {
-      case "collapse":
-        onChange("collapse", !params.collapse);
-        break;
-      default:
-        break;
-    }
-  };
+  params: { collapse },
+  data: { list },
+  action: { handleViewAction, handleDataAction },
+}: ICommonComponentProps<{ collapse: boolean }, { list: string[] }>) {
   return (
     <div className="docs-content__wrapper docs-page__inner-wrapper">
       <section className="doc-content__head">
-        <DocsContentHeadComponent collapse={params.collapse} onMenuItemClick={onMenuItemClick} />
+        <DocsContentHeadComponent
+          {...{ params: { collapse }, data: { list }, action: { handleDataAction, handleViewAction } }}
+        />
       </section>
       <section className="doc-content__body">
-        <main>ababbbb</main>
+        <main>
+          <DocsContentItemComponent />
+        </main>
       </section>
       <section className="doc-content__foot"></section>
     </div>

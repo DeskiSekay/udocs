@@ -1,0 +1,13 @@
+.docs-content-item__coupe {
+  display: flex;
+  border: 1px dashed var(--colors-gray-light-3);
+  border-left: none;
+  border-right: none;
+}
+.docs-content-item__lang {
+  width: 50%;
+  margin: 1rem;
+}
+.docs-content-item__lang:first-child {
+  border-right: 1px solid var(--colors-gray-light-3);
+}

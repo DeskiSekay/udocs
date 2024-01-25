@@ -17,6 +17,7 @@ function App() {
     }
   };
   useEffect(() => {
+    handleSystemResize();
     window.addEventListener("resize", handleSystemResize);
     return () => {
       window.removeEventListener("resize", handleSystemResize);
