@@ -19,7 +19,6 @@ function DocsContentComponent({
           <DocsContentItemComponent />
         </main>
       </section>
-      <section className="doc-content__foot"></section>
     </div>
   );
 }

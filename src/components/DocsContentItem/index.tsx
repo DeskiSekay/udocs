@@ -1,15 +1,4 @@
-import { ICommonComponentProps } from "@/types/system";
-import DocsContentItemLangComponent from "../DocsContentItemLang";
-import "./index.css";
-
-function DocsContentItemComponent({
-  params: { docsContentActiveItemId },
-  data: { id, index, content, comments },
-  action: { handleViewAction, handleDataAction },
-}: ICommonComponentProps<
-  { docsContentActiveItemId: string },
-  { id: string; index: number; content: string; comments: unknown }
->) {
+function DocsContentItemComponent() {
   return (
     <div
       className="docs-content-item__wrapper"
